@@ -70,34 +70,27 @@ let hogwarts = [
     occupation: "Teacher",
   },
 ];
-
-function gryffindorResident(){
-  let residents = "";
-  for(let resident of hogwarts){
-    let {firstName,lastName,house,pet,occupation} = resident;
-    if(house === "Gryffindor"){
-    residents += `${firstName} ${lastName}\n`;
+function gryffindorforStudent() {
+  let allStudents = "";
+  for (let student of hogwarts) {
+    let { firstName, lastName, house, pet, occupation } = student;
+    if (house === "Gryffindor") {
+      allStudents += `${firstName} ${lastName}\n`;
     }
   }
-  console.log(residents)
-  return residents;
+  return allStudents;
 }
 
-function teachersWithPet(){
-  let teachers = "";
-  for(let teacher of hogwarts){
-    let{firstName,lastName,house,pet,occupation} = teacher;
-    if(occupation === "Teacher" && pet !== null){
-       teachers += `${firstName} ${lastName}\n`;
+function teacherWithPet() {
+  let allTeachers = "";
+  for (const person of hogwarts) {
+    let { firstName, lastName, pet, occupation } = person;
+    if (occupation === "Teacher" && pet !== null) {
+      allTeachers += `${firstName} ${lastName}\n`;
     }
   }
-  console.log(teachers);
-  return teachers;
+  return allTeachers;
 }
 
-gryffindorResident(hogwarts);
-teachersWithPet(hogwarts)
-
-  
-
-
+console.log(teacherWithPet(hogwarts));
+console.log(gryffindorforStudent(hogwarts));
