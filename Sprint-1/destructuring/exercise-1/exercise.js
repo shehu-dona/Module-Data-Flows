@@ -13,4 +13,4 @@ function introduceYourself() {
   );
 }
 
-introduceYourself(personOne);
+console.log(introduceYourself(personOne));
