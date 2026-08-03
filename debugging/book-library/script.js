@@ -1,9 +1,8 @@
-let myLibrary = [];
-
-window.addEventListener("load", function (e) {
-  populateStorage();
-  render();
-});
+const myLibrary = [];
+const titleInput = document.getElementById("title");
+const authorInput = document.getElementById("author");
+const pagesInput = document.getElementById("pages");
+const checkInput = document.getElementById("check");
 
 function populateStorage() {
   if (myLibrary.length === 0) {
@@ -13,11 +12,6 @@ function populateStorage() {
     );
   }
 }
-document.getElementById("submitBtn").addEventListener("click", submit);
-const titleInput = document.getElementById("title");
-const authorInput = document.getElementById("author");
-const pagesInput = document.getElementById("pages");
-const checkInput = document.getElementById("check");
 
 //check the right input from forms and if its ok -> add the new book (object in array)
 //via Book function and start render function
@@ -26,7 +20,7 @@ function submit() {
   const authorVal = authorInput.value.trim();
   const pagesVal = Number(pagesInput.value);
 
-  if (!titleVal || !pagesVal || pagesVal <= 0) {
+  if (!titleVal || pagesVal <= 0 || !Number.isInteger(pagesVal)) {
     alert("Please fill all fields with valid values!");
     return;
   }
@@ -85,9 +79,23 @@ function render() {
       const deletedTitle = book.title;
       myLibrary.splice(i, 1);
       render();
-      console.log(`You've deleted title: ${deletedTitle}`);
+      showMessage(`You've deleted title: ${deletedTitle}`);
     });
-
     deleteCell.appendChild(deleteButton);
   }
 }
+
+function showMessage(text) {
+  const msgDiv = document.createElement("div");
+  msgDiv.className = "alert alert-info";
+  msgDiv.textContent = text;
+  document.body.insertBefore(msgDiv, document.getElementById("display"));
+  setTimeout(() => msgDiv.remove(), 3000);
+}
+
+window.addEventListener("load", function (e) {
+  populateStorage();
+  render();
+});
+
+document.getElementById("submitBtn").addEventListener("click", submit);
