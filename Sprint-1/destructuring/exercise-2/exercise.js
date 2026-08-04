@@ -92,5 +92,5 @@ function teacherWithPet() {
   return allTeachers;
 }
 
-teacherWithPet(hogwarts);
-gryffindorforStudent(hogwarts);
+console.log(teacherWithPet(hogwarts));
+console.log(gryffindorforStudent(hogwarts));

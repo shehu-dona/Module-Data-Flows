@@ -24,4 +24,4 @@ function receipt(order) {
   totalPrice = (totalPrice / 100).toFixed(2);
 }
 
-receipt(order);
+console.log(receipt(order));
