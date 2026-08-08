@@ -73,7 +73,7 @@ let hogwarts = [
 function gryffindorforStudent() {
   let allStudents = "";
   for (let student of hogwarts) {
-    let { firstName, lastName, house, pet, occupation } = student;
+    let { firstName, lastName, house } = student;
     if (house === "Gryffindor") {
       allStudents += `${firstName} ${lastName}\n`;
     }
