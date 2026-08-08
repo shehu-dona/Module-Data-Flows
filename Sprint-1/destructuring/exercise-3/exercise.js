@@ -22,6 +22,7 @@ function receipt(order) {
     totalPrice += pricePerQuantity;
   }
   totalPrice = (totalPrice / 100).toFixed(2);
+  // console,log()
 }
 
 console.log(receipt(order));
